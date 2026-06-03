@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Add this in your <head>, before </head> -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init("uFE2iiVUT0EcDBdkH"); // ← Replace with your EmailJS Public Key
+</script>
     <title>Global</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -398,68 +403,45 @@ EMAIL:  saripaposacassainodin@gmail.com
                             <div class="hire">
                                 <h2>You want us to do</h2>
 
-                                <form class="work-request">
-                                    <div class="work-request--options">
-                                        <span class="options-a">
-                                            <!--  -->
-                                            <input id="opt-1" type="checkbox" value="graphic design">
-                                            <label for="opt-1">
-                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                     viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
-                                                <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
-                                                <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z" />
-                      </g>
-                      </svg>
-                                                Graphic Design
-                                            </label>
+                                <form class="work-request" id="workRequestForm">
+  <div class="work-request--options">
+    <span class="options-a">
+      <input id="opt-1" type="checkbox" value="Graphic Design">
+      <label for="opt-1">
+        <!-- your existing SVG --> Graphic Design
+      </label>
 
-                                            <input id="opt-2" type="checkbox" value="developer">
-                                            <label for="opt-2">
-                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                     viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
-                                                <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
-                                                <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z" />
-                      </g>
-                      </svg>
-                                                Developer
-                                            </label>
+      <input id="opt-2" type="checkbox" value="Developer">
+      <label for="opt-2">
+        <!-- your existing SVG --> Developer
+      </label>
 
-                                            <input id="opt-3" type="checkbox" value="ux design">
-                                            <label for="opt-3">
-                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                     viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
-                                                <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
-                                                <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z" />
-</g>
-</svg>
-                                                UX Design
-                                            </label>
+      <input id="opt-3" type="checkbox" value="UX Design">
+      <label for="opt-3">
+        <!-- your existing SVG --> UX Design
+      </label>
 
-                                            <input id="opt-4" type="checkbox" value="webdesign">
-                                            <label for="opt-4">
-                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                     viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
-                                                <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
-                                                <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z" />
-                      </g>
-                      </svg>
-                                                Hardware Design
-                                            </label>
+      <input id="opt-4" type="checkbox" value="Hardware Design">
+      <label for="opt-4">
+        <!-- your existing SVG --> Hardware Design
+      </label>
+    </span>
+  </div>
 
-                                        </span>
-                                    </div>
-                                    <div class="work-request--information">
-                                        <div class="information-name">
-                                            <input id="name" type="text" spellcheck="false">
-                                            <label for="name">Name</label>
-                                        </div>
-                                        <div class="information-email">
-                                            <input id="email" type="email" spellcheck="false">
-                                            <label for="email">Email</label>
-                                        </div>
-                                    </div>
-                                    <input type="submit" value="Send Request">
-                                </form>
+  <div class="work-request--information">
+    <div class="information-name">
+      <input id="name" type="text" spellcheck="false">
+      <label for="name">Name</label>
+    </div>
+    <div class="information-email">
+      <input id="email" type="email" spellcheck="false">
+      <label for="email">Email</label>
+    </div>
+  </div>
+
+  <input type="submit" value="Send Request">
+  <p id="form-status" style="color:white; margin-top:10px;"></p>
+</form>
                             </div>
                         </li>
                     </ul>
@@ -476,13 +458,47 @@ EMAIL:  saripaposacassainodin@gmail.com
     </div>
 
     <script>
-        function toggleContent(id) {
-            var content = document.getElementById(id);
-            var allContent = document.getElementsByClassName('about--content');
-            for (var i = 0; i < allContent.length; i++) {
-                allContent[i].style.display = 'none';
-            }
-            content.style.display = 'block';
+        document.getElementById('workRequestForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Collect checked services
+    const checkboxes = document.querySelectorAll('.work-request--options input[type="checkbox"]:checked');
+    const services = Array.from(checkboxes).map(cb => cb.value).join(', ');
+
+    const name  = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const status = document.getElementById('form-status');
+
+    if (!name || !email) {
+      status.textContent = '⚠️ Please fill in your name and email.';
+      status.style.color = 'orange';
+      return;
+    }
+
+    if (!services) {
+      status.textContent = '⚠️ Please select at least one service.';
+      status.style.color = 'orange';
+      return;
+    }
+
+    const templateParams = {
+      from_name:    name,
+      from_email:   email,
+      services:     services,
+      to_email:     'saripaposacassainodin@gmail.com'
+    };
+
+    emailjs.send('service_hjbzare', 'template_27ln4cq', templateParams)
+      .then(function() {
+        status.textContent = '✅ Request sent successfully!';
+        status.style.color = 'lightgreen';
+        document.getElementById('workRequestForm').reset();
+      }, function(error) {
+        status.textContent = '❌ Failed to send. Please try again.';
+        status.style.color = 'red';
+        console.error('EmailJS error:', error);
+      });
+  });
         }
         function closeEducation() {
             document.getElementById('education').style.display = 'none';
