@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Add this in your <head>, before </head> -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-  emailjs.init("uFE2iiVUT0EcDBdkH"); // ← Replace with your EmailJS Public Key
-</script>
     <title>Global</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/main.css">
 
     <style>
+        /* ── Video Modal ── */
         .video-modal {
             display: none;
             position: fixed;
@@ -51,7 +47,9 @@
             font-weight: bold;
             cursor: pointer;
         }
-        .education-timeline {
+
+        /* ── Education Boxes ── */
+        .education-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -60,12 +58,10 @@
         }
 
         .education-box {
-            flex: 1 1 300px; 
+            flex: 1 1 300px;
             background-color: black;
             padding: 15px;
-            border-left: 5px solid #0000ff;
-            
-            border-color: blue;
+            border-left: 5px solid blue;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             position: relative;
@@ -74,52 +70,241 @@
             box-sizing: border-box;
         }
 
-            .education-box h4 {
-                margin: 0 0 10px;
-                color: black;
-                background-color: blue;
-                
-            }
-
-            .education-box ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                border: 2px;
-                border-color: blue;
-            }
-
-            .education-box li {
-                margin-bottom: 6px;
-                color: white;
-            }
-
-        .body {
-            background-image: url("home1.jpg");
+        .education-box h4 {
+            margin: 0 0 10px;
+            color: white;
+            background-color: blue;
+            padding: 6px 10px;
+            border-radius: 4px;
         }
 
+        .education-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .education-box li {
+            margin-bottom: 6px;
+            color: white;
+        }
+
+        /* ── About Options ── */
         .about--options {
             display: flex;
             justify-content: center;
             margin-top: 20px;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         .about--options a {
             margin: 0 5px;
             text-decoration: none;
-            color: blue;
+            color: white;
+            background-color: blue;
+            padding: 8px 20px;
+            border-radius: 6px;
+            transition: background 0.2s;
         }
 
+        .about--options a:hover {
+            background-color: #0000cc;
+        }
+
+        .about--options a h3 {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* ── About Content Panels ── */
         .about--content {
             display: none;
-            padding: 10px;
+            padding: 20px 10px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Back Button ── */
+        .back-button {
+            background: blue;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            background: #0000cc;
+        }
+
+        /* ── Skills Grid ── */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .skill-card {
+            background-color: #000;
+            border-left: 5px solid blue;
+            border-radius: 8px;
+            padding: 16px 20px;
+            min-width: 200px;
+            max-width: 260px;
+            flex: 1 1 200px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .skill-card h4 {
+            color: #fff;
+            background-color: blue;
+            margin: 0 0 10px;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skill-card li {
+            color: white;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* ── CV Card ── */
+        .cv-card {
+            background-color: #111;
+            border-radius: 10px;
+            padding: 28px;
+            max-width: 720px;
+            margin: 20px auto;
+            box-shadow: 0 4px 20px rgba(0,0,255,0.25);
+            color: white;
+        }
+
+        .cv-header {
+            border-bottom: 2px solid blue;
+            padding-bottom: 14px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .cv-header h2 {
+            color: white;
+            margin: 0 0 4px;
+            font-size: 1.7rem;
+            letter-spacing: 3px;
+        }
+
+        .cv-subtitle {
+            color: #aaa;
+            margin: 4px 0 8px;
+            font-size: 1rem;
+        }
+
+        .cv-contact {
+            font-size: 0.8rem;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .cv-body {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cv-section h3 {
+            color: #4444ff;
+            border-bottom: 1px solid #222;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
+
+        .cv-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cv-table tr:nth-child(even) {
+            background-color: #1a1a1a;
+        }
+
+        .cv-table td {
+            padding: 7px 12px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .cv-table td:first-child {
+            color: #aaa;
+            font-weight: bold;
+            width: 150px;
+        }
+
+        .cv-entry {
+            margin-bottom: 12px;
+            color: #ccc;
+            line-height: 1.6;
+            padding-left: 10px;
+            border-left: 3px solid blue;
+        }
+
+        .cv-entry strong {
+            color: white;
+        }
+
+        .cv-entry span {
+            color: #aaa;
+            font-size: 0.85rem;
+        }
+
+        .cv-skills-list {
+            color: #ccc;
+            font-size: 0.9rem;
+            line-height: 2;
+        }
+
+        .cv-skills-list .badge {
+            display: inline-block;
+            background: #0000aa;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin: 3px;
+            font-size: 0.82rem;
+        }
+
+        /* ── Form Status ── */
+        #form-status {
+            color: white;
+            margin-top: 10px;
+            font-size: 0.9rem;
         }
     </style>
-
 </head>
 
 <body>
-    <!-- notification for small viewports  -->
+    <!-- notification for small viewports -->
     <div class="device-notification">
         <a class="device-notification--logo" href="#0">
             <img src="assets/img/logo.png" alt="Global">
@@ -143,16 +328,20 @@
                             <span></span>
                         </div>
                     </header>
+
                     <nav class="l-side-nav">
                         <ul class="side-nav">
                             <li class="is-active"><span>Home</span></li>
                             <li><span>My Projects</span></li>
                             <li><span>About me</span></li>
                             <li><span>Contact</span></li>
-                            <li><span>Let'a Work Together</span></li>
+                            <li><span>Let's Work Together</span></li>
                         </ul>
                     </nav>
+
                     <ul class="l-main-content main-content">
+
+                        <!-- ── HOME ── -->
                         <li class="l-section section section--is-active">
                             <div class="intro">
                                 <div class="intro--banner">
@@ -163,36 +352,24 @@
                                         Let's Work Together
                                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                                         <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
-                                        <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z" />
-                  </g>
-                  </svg>
+                                        <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
+                                        </g>
+                                        </svg>
                                         <span class="btn-background"></span>
                                     </button>
                                     <img src="assets/img/introduction-visual.png" alt="Welcome">
                                 </div>
-                                <div class="intro--options">
-                                    <!--<a href="#0">
-                                        <h3>Metiew &amp; Smith</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
-                                    </a>
-                                    <a href="#0">
-                                        <h3>Fantasy interactive</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
-                                    </a>
-                                    <a href="#0">
-                                        <h3>Paul &amp; shark</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
-                                    </a> -->
-                                </div>
+                                <div class="intro--options"></div>
                             </div>
                         </li>
 
-                        <!-- PROJECT  -->
+                        <!-- ── PROJECTS ── -->
                         <li class="l-section section">
                             <div class="work">
                                 <h2>Selected project</h2>
                                 <div class="work--lockup">
-                                    <!-- Video Modal -->
+
+                                    <!-- Video Modals -->
                                     <div id="modalNumericals" class="video-modal">
                                         <div class="video-modal-content">
                                             <span class="video-modal-close" onclick="closeVideoModal('modalNumericals')">&times;</span>
@@ -214,7 +391,7 @@
                                         </div>
                                     </div>
 
-                                     <div id="modalBalance" class="video-modal">
+                                    <div id="modalBalance" class="video-modal">
                                         <div class="video-modal-content">
                                             <span class="video-modal-close" onclick="closeVideoModal('modalBalance')">&times;</span>
                                             <iframe id="videoBalance" width="600" height="400" src="" frameborder="0" allowfullscreen></iframe>
@@ -222,29 +399,24 @@
                                     </div>
 
                                     <ul class="slider">
-                                        <!-- numerical project  -->
                                         <li class="slider--item slider--item-left">
                                             <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/hsd4ZCD_9gk')">
                                                 <div class="slider--item-image">
-                                                    <img src="assets/img/numericals.jpg" alt="Victory">
+                                                    <img src="assets/img/numericals.jpg" alt="Numericals">
                                                 </div>
                                                 <p class="slider--item-title">Numericals</p>
                                                 <p class="slider--item-description">Coding: Where logic meets creativity.</p>
                                             </a>
                                         </li>
-
-                                        <!-- matlab project  -->
                                         <li class="slider--item slider--item-center">
                                             <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/zSmEEYdxUOQ')">
                                                 <div class="slider--item-image">
-                                                    <img src="assets/img/matlab.jpg" alt="Metiew and Smith">
+                                                    <img src="assets/img/matlab.jpg" alt="MATLAB">
                                                 </div>
                                                 <p class="slider--item-title">MATLAB</p>
                                                 <p class="slider--item-description">Software Application: Bridging imagination with functionality.</p>
                                             </a>
                                         </li>
-
-                                        <!-- sumobot project  -->
                                         <li class="slider--item slider--item-right">
                                             <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/VO4baTNzTyM?autoplay=1')">
                                                 <div class="slider--item-image">
@@ -254,41 +426,27 @@
                                                 <p class="slider--item-description">Experiencing how to create a formidable sumobot.</p>
                                             </a>
                                         </li>
-
-                                        <li class="slider--item slider--item-right">
-                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/VO4baTNzTyM?autoplay=1')">
-                                                <div class="slider--item-image">
-                                                    <img src="assets/img/sumobot.jpg" alt="Sumobot">
-                                                </div>
-                                                <p class="slider--item-title">Sumobot</p>
-                                                <p class="slider--item-description">Experiencing how to create a formidable sumobot.</p>
-                                            </a>
-                                        </li>
-
-
                                     </ul>
+
                                     <div class="slider--prev">
-                                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                             viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                                         <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
-                                        <path d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29
-                    c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180
-                    c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z" />
-                  </g>
-                  </svg>
+                                        <path d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z"/>
+                                        </g>
+                                        </svg>
                                     </div>
                                     <div class="slider--next">
                                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                                         <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
-                                        <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z" />
-                  </g>
-                  </svg>
+                                        <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
+                                        </g>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
                         </li>
 
-                        <!-- ABOUT ME  -->
+                        <!-- ── ABOUT ME ── -->
                         <li class="l-section section">
                             <div class="about">
                                 <div class="about--banner">
@@ -298,156 +456,249 @@
                                         <span>
                                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                                             <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
-                                            <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z" />
-                    </g>
-                    </svg>
+                                            <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
+                                            </g>
+                                            </svg>
                                         </span>
                                     </a>
                                     <img src="assets/img/about-visual.jpg" alt="About Us">
                                 </div>
+
+                                <!-- Tab Buttons -->
                                 <div class="about--options">
-                                    <a href="#education" onclick="toggleContent('education')">
+                                    <a href="#education" onclick="toggleContent('education'); return false;">
                                         <h3>Education</h3>
                                     </a>
-                                    <a href="#philosophy" onclick="toggleContent('skills')">
+                                    <a href="#skills" onclick="toggleContent('skills'); return false;">
                                         <h3>Skills</h3>
                                     </a>
-                                    <a href="#personal information" onclick="toggleContent('personal information')">
+                                    <a href="#personal-information" onclick="toggleContent('personal-information'); return false;">
                                         <h3>Personal Information</h3>
                                     </a>
                                 </div>
 
+                                <!-- Education Panel -->
                                 <div class="about--content" id="education">
-                                    <button onclick="closeEducation()" class="back-button"> ← </button>
+                                    <button onclick="toggleContent(null)" class="back-button">← Back</button>
                                     <h2>Education</h2>
-                                    <!-- Information about education goes here.  -->
                                     <div class="education-container">
-                                        <div class="education-box elementary">
+                                        <div class="education-box">
                                             <h4>Elementary</h4>
                                             <ul>
-                                                <li>2012–2017</li>
+                                                <li>2012 – 2017</li>
                                                 <li>Bantolinao, Antequera, Bohol</li>
                                                 <li>Bantolinao Elementary School</li>
                                             </ul>
                                         </div>
-
-                                        <div class="education-box highschool">
+                                        <div class="education-box">
                                             <h4>High School</h4>
                                             <ul>
-                                                <li>2018–2024</li>
+                                                <li>2018 – 2024</li>
                                                 <li>Bantolinao, Antequera, Bohol</li>
                                                 <li>Bantolinao National High School</li>
                                             </ul>
                                         </div>
-
-                                        <div class="education-box college">
+                                        <div class="education-box">
                                             <h4>College</h4>
                                             <ul>
-                                                <li>2024–2026</li>
+                                                <li>2024 – Present</li>
                                                 <li>Tagbilaran City, Bohol</li>
                                                 <li>University of Bohol</li>
                                             </ul>
                                         </div>
-                                    </div
-
+                                    </div>
                                 </div>
 
+                                <!-- Skills Panel -->
                                 <div class="about--content" id="skills">
+                                    <button onclick="toggleContent(null)" class="back-button">← Back</button>
                                     <h2>Skills</h2>
-                                    <ul>
-                                        <li>Programming languages: C/C#, Python, Node Js</li>
-                                        <li>Web development: HTML, CSS, JavaScript</li>
-                                        <li>Hardware troubleshooting and maintenance</li>
-                                        <li>Problem solving</li>
-                                    </ul>
-
+                                    <div class="skills-grid">
+                                        <div class="skill-card">
+                                            <h4>💻 Programming Languages</h4>
+                                            <ul>
+                                                <li>C / C#</li>
+                                                <li>Python</li>
+                                                <li>Node.js</li>
+                                            </ul>
+                                        </div>
+                                        <div class="skill-card">
+                                            <h4>🌐 Web Development</h4>
+                                            <ul>
+                                                <li>HTML</li>
+                                                <li>CSS</li>
+                                                <li>JavaScript</li>
+                                            </ul>
+                                        </div>
+                                        <div class="skill-card">
+                                            <h4>🔧 Hardware</h4>
+                                            <ul>
+                                                <li>Hardware Troubleshooting</li>
+                                                <li>Hardware Maintenance</li>
+                                            </ul>
+                                        </div>
+                                        <div class="skill-card">
+                                            <h4>🧠 Soft Skills</h4>
+                                            <ul>
+                                                <li>Problem Solving</li>
+                                                <li>Critical Thinking</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="about--content" id="personal information">
-                                    <h2>Personal Information</h2>
-                                    <p>I.  PERSONAL INFORMATION
-NAME:  SARIP, SAINODIN S.
-COURSE:  COMPUTER ENGINEERING
-BIRTHDATE:  DECEMBER 29, 2004
-BIRTHPLACE:  DARAGA ALBAY
-NATIONALITY:  FILIPINO
-RELIGION:  ISLAM
-GENDER:  MALE
-ADDRESS:  PUROK 3, BANTOLINAO, ANTEQUERA, BOHOL
-EMAIL:  saripaposacassainodin@gmail.com
-
-</p>
+                                <!-- Personal Information / CV Panel -->
+                                <div class="about--content" id="personal-information">
+                                    <button onclick="toggleContent(null)" class="back-button">← Back</button>
+                                    <div class="cv-card">
+                                        <div class="cv-header">
+                                            <h2>SAINODIN S. SARIP</h2>
+                                            <p class="cv-subtitle">Computer Engineering Student</p>
+                                            <p class="cv-contact">
+                                                📍 Purok 3, Bantolinao, Antequera, Bohol &nbsp;|&nbsp;
+                                                📧 saripaposacassainodin@gmail.com &nbsp;|&nbsp;
+                                                📞 09817936436
+                                            </p>
+                                        </div>
+                                        <div class="cv-body">
+                                            <div class="cv-section">
+                                                <h3>Personal Details</h3>
+                                                <table class="cv-table">
+                                                    <tr><td>Birthdate</td><td>December 29, 2004</td></tr>
+                                                    <tr><td>Birthplace</td><td>Daraga, Albay</td></tr>
+                                                    <tr><td>Nationality</td><td>Filipino</td></tr>
+                                                    <tr><td>Religion</td><td>Islam</td></tr>
+                                                    <tr><td>Gender</td><td>Male</td></tr>
+                                                    <tr><td>Course</td><td>Computer Engineering</td></tr>
+                                                </table>
+                                            </div>
+                                            <div class="cv-section">
+                                                <h3>Education</h3>
+                                                <div class="cv-entry">
+                                                    <strong>University of Bohol</strong> — Tagbilaran City, Bohol<br>
+                                                    <span>BS Computer Engineering &nbsp;|&nbsp; 2024 – Present</span>
+                                                </div>
+                                                <div class="cv-entry">
+                                                    <strong>Bantolinao National High School</strong> — Antequera, Bohol<br>
+                                                    <span>2018 – 2024</span>
+                                                </div>
+                                                <div class="cv-entry">
+                                                    <strong>Bantolinao Elementary School</strong> — Antequera, Bohol<br>
+                                                    <span>2012 – 2017</span>
+                                                </div>
+                                            </div>
+                                            <div class="cv-section">
+                                                <h3>Technical Skills</h3>
+                                                <div class="cv-skills-list">
+                                                    <span class="badge">C / C#</span>
+                                                    <span class="badge">Python</span>
+                                                    <span class="badge">Node.js</span>
+                                                    <span class="badge">HTML</span>
+                                                    <span class="badge">CSS</span>
+                                                    <span class="badge">JavaScript</span>
+                                                    <span class="badge">Hardware Troubleshooting</span>
+                                                    <span class="badge">Hardware Maintenance</span>
+                                                    <span class="badge">Problem Solving</span>
+                                                    <span class="badge">Critical Thinking</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
                         </li>
 
-                        <!--CONTACT -->
+                        <!-- ── CONTACT ── -->
                         <li class="l-section section">
                             <div class="contact">
                                 <div class="contact--lockup">
                                     <div class="modal">
                                         <div class="modal--information">
-                                            <p>Bantolinao, Anteqeura, Bohol</p>
-                                            <a href="https://mail.google.com/mail/u/0/#inbox">saripaposacassainodin@gmail.com</a>
-                                            <a href="tel:+148126287560">09817936436</a>
+                                            <p>Bantolinao, Antequera, Bohol</p>
+                                            <a href="mailto:saripaposacassainodin@gmail.com">saripaposacassainodin@gmail.com</a>
+                                            <a href="tel:+639817936436">09817936436</a>
                                         </div>
                                         <ul class="modal--options">
-                                            <li><a href="https://mail.google.com/mail/u/0/#inbox">Contact Us</a></li>
+                                            <li><a href="mailto:saripaposacassainodin@gmail.com">Contact Us</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </li>
+
+                        <!-- ── LET'S WORK TOGETHER ── -->
                         <li class="l-section section">
                             <div class="hire">
                                 <h2>You want us to do</h2>
 
                                 <form class="work-request" id="workRequestForm">
-  <div class="work-request--options">
-    <span class="options-a">
-      <input id="opt-1" type="checkbox" value="Graphic Design">
-      <label for="opt-1">
-        <!-- your existing SVG --> Graphic Design
-      </label>
+                                    <div class="work-request--options">
+                                        <span class="options-a">
+                                            <input id="opt-1" type="checkbox" value="Graphic Design">
+                                            <label for="opt-1">
+                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
+                                                <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                                                <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
+                                                </g>
+                                                </svg>
+                                                Graphic Design
+                                            </label>
 
-      <input id="opt-2" type="checkbox" value="Developer">
-      <label for="opt-2">
-        <!-- your existing SVG --> Developer
-      </label>
+                                            <input id="opt-2" type="checkbox" value="Developer">
+                                            <label for="opt-2">
+                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
+                                                <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                                                <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
+                                                </g>
+                                                </svg>
+                                                Developer
+                                            </label>
 
-      <input id="opt-3" type="checkbox" value="UX Design">
-      <label for="opt-3">
-        <!-- your existing SVG --> UX Design
-      </label>
+                                            <input id="opt-3" type="checkbox" value="UX Design">
+                                            <label for="opt-3">
+                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
+                                                <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                                                <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
+                                                </g>
+                                                </svg>
+                                                UX Design
+                                            </label>
 
-      <input id="opt-4" type="checkbox" value="Hardware Design">
-      <label for="opt-4">
-        <!-- your existing SVG --> Hardware Design
-      </label>
-    </span>
-  </div>
+                                            <input id="opt-4" type="checkbox" value="Hardware Design">
+                                            <label for="opt-4">
+                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
+                                                <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
+                                                <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
+                                                </g>
+                                                </svg>
+                                                Hardware Design
+                                            </label>
+                                        </span>
+                                    </div>
 
-  <div class="work-request--information">
-    <div class="information-name">
-      <input id="name" type="text" spellcheck="false">
-      <label for="name">Name</label>
-    </div>
-    <div class="information-email">
-      <input id="email" type="email" spellcheck="false">
-      <label for="email">Email</label>
-    </div>
-  </div>
+                                    <div class="work-request--information">
+                                        <div class="information-name">
+                                            <input id="name" type="text" spellcheck="false">
+                                            <label for="name">Name</label>
+                                        </div>
+                                        <div class="information-email">
+                                            <input id="email" type="email" spellcheck="false">
+                                            <label for="email">Email</label>
+                                        </div>
+                                    </div>
 
-  <input type="submit" value="Send Request">
-  <p id="form-status" style="color:white; margin-top:10px;"></p>
-</form>
+                                    <input type="submit" value="Send Request">
+                                    <p id="form-status"></p>
+                                </form>
                             </div>
                         </li>
+
                     </ul>
                 </div>
             </div>
         </div>
+
         <ul class="outer-nav">
             <li class="is-active">Home</li>
             <li>My projects</li>
@@ -457,52 +708,20 @@ EMAIL:  saripaposacassainodin@gmail.com
         </ul>
     </div>
 
+    <!-- ── SCRIPTS ── -->
     <script>
-        document.getElementById('workRequestForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Collect checked services
-    const checkboxes = document.querySelectorAll('.work-request--options input[type="checkbox"]:checked');
-    const services = Array.from(checkboxes).map(cb => cb.value).join(', ');
-
-    const name  = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const status = document.getElementById('form-status');
-
-    if (!name || !email) {
-      status.textContent = '⚠️ Please fill in your name and email.';
-      status.style.color = 'orange';
-      return;
-    }
-
-    if (!services) {
-      status.textContent = '⚠️ Please select at least one service.';
-      status.style.color = 'orange';
-      return;
-    }
-
-    const templateParams = {
-      from_name:    name,
-      from_email:   email,
-      services:     services,
-      to_email:     'saripaposacassainodin@gmail.com'
-    };
-
-    emailjs.send('service_hjbzare', 'template_27ln4cq', templateParams)
-      .then(function() {
-        status.textContent = '✅ Request sent successfully!';
-        status.style.color = 'lightgreen';
-        document.getElementById('workRequestForm').reset();
-      }, function(error) {
-        status.textContent = '❌ Failed to send. Please try again.';
-        status.style.color = 'red';
-        console.error('EmailJS error:', error);
-      });
-  });
+        /* ---------- About Tab Toggle ---------- */
+        function toggleContent(id) {
+            var allContent = document.getElementsByClassName('about--content');
+            for (var i = 0; i < allContent.length; i++) {
+                allContent[i].style.display = 'none';
+            }
+            if (id) {
+                document.getElementById(id).style.display = 'block';
+            }
         }
-        function closeEducation() {
-            document.getElementById('education').style.display = 'none';
-        }
+
+        /* ---------- Video Modals ---------- */
         function openVideoModal(videoURL) {
             let modalId = '';
             let iframeId = '';
@@ -518,8 +737,10 @@ EMAIL:  saripaposacassainodin@gmail.com
                 iframeId = 'videoSumobot';
             }
 
-            document.getElementById(modalId).style.display = 'block';
-            document.getElementById(iframeId).src = videoURL;
+            if (modalId) {
+                document.getElementById(modalId).style.display = 'block';
+                document.getElementById(iframeId).src = videoURL;
+            }
         }
 
         function closeVideoModal(modalId) {
@@ -529,16 +750,86 @@ EMAIL:  saripaposacassainodin@gmail.com
             modal.style.display = 'none';
         }
 
-        // Close on background click
-        window.onclick = function (event) {
-            ['modalNumericals', 'modalMatlab', 'modalSumobot'].forEach(id => {
+        // Close modal on background click
+        window.onclick = function(event) {
+            ['modalNumericals', 'modalMatlab', 'modalSumobot', 'modalBalance'].forEach(function(id) {
                 const modal = document.getElementById(id);
-                if (event.target == modal) {
+                if (modal && event.target === modal) {
                     closeVideoModal(id);
                 }
             });
         };
 
+        /* ---------- Send Request Form (Formspree) ---------- */
+        document.getElementById('workRequestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const checkboxes = document.querySelectorAll('.work-request--options input[type="checkbox"]:checked');
+            const services   = Array.from(checkboxes).map(cb => cb.value).join(', ');
+            const name       = document.getElementById('name').value.trim();
+            const email      = document.getElementById('email').value.trim();
+            const status     = document.getElementById('form-status');
+
+            // Validation
+            if (!name || !email) {
+                status.textContent = '⚠️ Please fill in your name and email.';
+                status.style.color = 'orange';
+                return;
+            }
+            if (!services) {
+                status.textContent = '⚠️ Please select at least one service.';
+                status.style.color = 'orange';
+                return;
+            }
+
+            // Build the email body as a mailto link as fallback,
+            // OR use Formspree — replace YOUR_FORMSPREE_ID below after signing up at formspree.io
+            const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // <-- Replace this after signing up at formspree.io
+
+            if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
+                // Fallback: open Gmail compose in browser with pre-filled fields
+                const subject = encodeURIComponent('Work Request from ' + name);
+                const body    = encodeURIComponent(
+                    'Name: ' + name + '\n' +
+                    'Email: ' + email + '\n' +
+                    'Services Requested: ' + services
+                );
+                window.open(
+                    'https://mail.google.com/mail/?view=cm&fs=1&to=saripaposacassainodin@gmail.com&su=' + subject + '&body=' + body,
+                    '_blank'
+                );
+                status.textContent = '✅ Gmail opened! Please click Send in the new tab.';
+                status.style.color = 'lightgreen';
+                return;
+            }
+
+            // Formspree submission (active when FORMSPREE_ID is set)
+            status.textContent = '⏳ Sending...';
+            status.style.color = 'white';
+
+            fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name:     name,
+                    email:    email,
+                    services: services
+                })
+            })
+            .then(function(response) {
+                if (response.ok) {
+                    status.textContent = '✅ Request sent! I will get back to you soon.';
+                    status.style.color = 'lightgreen';
+                    document.getElementById('workRequestForm').reset();
+                } else {
+                    throw new Error('Server error');
+                }
+            })
+            .catch(function() {
+                status.textContent = '❌ Failed to send. Please try again.';
+                status.style.color = 'red';
+            });
+        });
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
