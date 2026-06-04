@@ -121,7 +121,7 @@
         }
         .project-modal-close:hover { background: blue; }
 
-        /* ── About Info Modal (Education / Skills / CV) ── */
+        /* ── About Info Modal ── */
         .about-modal {
             display: none;
             position: fixed;
@@ -179,6 +179,47 @@
         @keyframes popIn {
             from { opacity: 0; transform: scale(0.93) translateY(-10px); }
             to   { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* ── About Options — 3 cards side by side ── */
+        .about--options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .about-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #000;
+            border: 2px solid blue;
+            border-radius: 12px;
+            padding: 20px 16px 16px;
+            width: 160px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+        .about-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0,0,255,0.4);
+            background: #0a0a2a;
+        }
+        .about-card img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 12px;
+            border-radius: 8px;
+        }
+        .about-card h3 {
+            margin: 0;
+            color: white;
+            font-size: 0.88rem;
+            text-align: center;
+            letter-spacing: 1px;
         }
 
         /* ── Education Boxes ── */
@@ -240,38 +281,27 @@
             padding-bottom: 14px;
             margin-bottom: 20px;
         }
-        .cv-header h2 {
-            margin: 0 0 4px;
-            font-size: 1.5rem;
-            letter-spacing: 3px;
-            color: white;
-        }
+        .cv-header h2 { margin: 0 0 4px; font-size: 1.4rem; letter-spacing: 3px; color: white; }
         .cv-subtitle { color: #aaa; margin: 4px 0 8px; font-size: 0.92rem; }
         .cv-contact { font-size: 0.78rem; color: #ccc; line-height: 2; }
-
-        .cv-section { margin-bottom: 22px; }
+        .cv-body { display: flex; flex-direction: column; gap: 18px; }
+        .cv-section { margin-bottom: 4px; }
         .cv-section h3 {
             color: #5555ff;
             border-bottom: 1px solid #2a2a2a;
-            padding-bottom: 5px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-size: 0.78rem;
-            letter-spacing: 2px;
+            padding-bottom: 5px; margin-bottom: 12px;
+            text-transform: uppercase; font-size: 0.78rem; letter-spacing: 2px;
         }
         .cv-table { width: 100%; border-collapse: collapse; }
         .cv-table tr:nth-child(even) { background: #1a1a1a; }
         .cv-table td { padding: 7px 10px; color: #ccc; font-size: 0.87rem; }
         .cv-table td:first-child { color: #aaa; font-weight: bold; width: 130px; }
-
         .cv-entry {
             margin-bottom: 12px; padding-left: 12px;
-            border-left: 3px solid blue;
-            line-height: 1.65;
+            border-left: 3px solid blue; line-height: 1.65;
         }
         .cv-entry strong { color: white; font-size: 0.92rem; }
         .cv-entry span { color: #aaa; font-size: 0.82rem; display: block; margin-top: 2px; }
-
         .cv-seminar {
             margin-bottom: 12px; padding: 10px 14px;
             background: #1a1a1a; border-radius: 6px;
@@ -279,56 +309,23 @@
         }
         .cv-seminar strong { color: white; font-size: 0.9rem; display: block; margin-bottom: 4px; }
         .cv-seminar span { color: #aaa; font-size: 0.82rem; display: block; line-height: 1.6; }
-
         .cv-skills-list { display: flex; flex-wrap: wrap; gap: 6px; }
         .badge {
             display: inline-block; background: #0000aa;
             color: white; padding: 3px 10px;
             border-radius: 20px; font-size: 0.8rem;
         }
-
         .cv-declaration {
-            background: #1a1a1a;
-            border-radius: 8px;
-            padding: 14px 16px;
-            color: #aaa;
-            font-size: 0.82rem;
-            line-height: 1.7;
-            font-style: italic;
-            margin-top: 4px;
+            background: #1a1a1a; border-radius: 8px;
+            padding: 14px 16px; color: #aaa;
+            font-size: 0.82rem; line-height: 1.7; font-style: italic;
         }
         .cv-signature {
-            margin-top: 20px;
-            text-align: right;
-            color: #ccc;
-            font-size: 0.85rem;
-            border-top: 1px solid #333;
-            padding-top: 14px;
+            margin-top: 20px; text-align: right;
+            color: #ccc; font-size: 0.85rem;
+            border-top: 1px solid #333; padding-top: 14px;
         }
         .cv-signature strong { display: block; color: white; font-size: 0.9rem; margin-top: 4px; }
-
-        /* ── About Options (horizontal buttons) ── */
-        .about--options {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 24px;
-        }
-        .about--options a {
-            text-decoration: none;
-            color: white;
-            background: blue;
-            padding: 10px 22px;
-            border-radius: 6px;
-            transition: background 0.2s, transform 0.15s;
-            display: inline-block;
-        }
-        .about--options a:hover {
-            background: #0000cc;
-            transform: translateY(-2px);
-        }
-        .about--options a h3 { margin: 0; font-size: 0.9rem; }
 
         /* ── Form Status ── */
         #form-status { color: white; margin-top: 10px; font-size: 0.9rem; }
@@ -551,15 +548,18 @@
                                     <img src="assets/img/about-visual.jpg" alt="About Us">
                                 </div>
 
-                                <!-- Horizontal Tab Buttons -->
+                                <!-- 3 Cards side by side with images -->
                                 <div class="about--options">
-                                    <a href="#0" onclick="openAboutModal('modalEducation'); return false;">
+                                    <a class="about-card" href="#0" onclick="openAboutModal('modalEducation'); return false;">
+                                        <img src="education.jpg" alt="Education">
                                         <h3>Education</h3>
                                     </a>
-                                    <a href="#0" onclick="openAboutModal('modalSkills'); return false;">
+                                    <a class="about-card" href="#0" onclick="openAboutModal('modalSkills'); return false;">
+                                        <img src="skills.jpg" alt="Skills">
                                         <h3>Skills</h3>
                                     </a>
-                                    <a href="#0" onclick="openAboutModal('modalCV'); return false;">
+                                    <a class="about-card" href="#0" onclick="openAboutModal('modalCV'); return false;">
+                                        <img src="PI.png" alt="Personal Information">
                                         <h3>Personal Information</h3>
                                     </a>
                                 </div>
@@ -655,9 +655,9 @@
         </ul>
     </div>
 
-    <!-- ══════════════════════════════════════
+    <!-- ══════════════════════════
          ABOUT ME POP-UP MODALS
-    ══════════════════════════════════════ -->
+    ══════════════════════════ -->
 
     <!-- Education Modal -->
     <div id="modalEducation" class="about-modal">
@@ -694,7 +694,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="cv-section" style="margin-top: 28px;">
                     <h3>Seminars &amp; Training</h3>
                     <div class="cv-seminar">
@@ -779,7 +778,6 @@
                         </p>
                     </div>
                     <div class="cv-body">
-
                         <div class="cv-section">
                             <h3>I. Personal Information</h3>
                             <table class="cv-table">
@@ -794,7 +792,6 @@
                                 <tr><td>Email</td><td>saripaposacassainodin@gmail.com</td></tr>
                             </table>
                         </div>
-
                         <div class="cv-section">
                             <h3>II. Educational Background</h3>
                             <div class="cv-entry">
@@ -812,7 +809,6 @@
                                 <span>Bantolinao, Antequera, Bohol &nbsp;|&nbsp; S.Y. 2011 – 2017</span>
                             </div>
                         </div>
-
                         <div class="cv-section">
                             <h3>III. Seminars &amp; Training</h3>
                             <div class="cv-seminar">
@@ -828,7 +824,6 @@
                                 <span>📅 April 21, 2026 &nbsp;|&nbsp; 📍 Mater Dei College Activity Center</span>
                             </div>
                         </div>
-
                         <div class="cv-section">
                             <h3>IV. Declaration</h3>
                             <div class="cv-declaration">
@@ -842,7 +837,6 @@
                                 Applicant's Signature over Printed Name
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -921,7 +915,6 @@
                 status.textContent = '⚠️ Please select at least one service.';
                 status.style.color = 'orange'; return;
             }
-
             const subject = encodeURIComponent('Work Request from ' + name);
             const body    = encodeURIComponent(
                 'Name: ' + name + '\n' +
