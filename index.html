@@ -5,9 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="HTML5 website template">
-    <meta name="keywords" content="global, template, html, sass, jquery">
-    <meta name="author" content="Bucky Maler">
     <link rel="stylesheet" href="assets/css/main.css">
 
     <style>
@@ -16,37 +13,118 @@
             display: none;
             position: fixed;
             z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.85);
         }
-
         .video-modal-content {
             position: relative;
-            margin: 10% auto;
-            padding: 0;
+            margin: 8% auto;
             width: 80%;
             max-width: 700px;
-            background-color: #000;
-            box-shadow: 0 5px 15px rgba(0,0,0,.5);
+            background: #000;
+            box-shadow: 0 5px 30px rgba(0,0,255,0.4);
+            border-radius: 10px;
+            overflow: hidden;
         }
-
         .video-modal iframe {
-            width: 100%;
-            height: 400px;
+            width: 100%; height: 400px; display: block;
         }
-
         .video-modal-close {
             position: absolute;
-            top: 10px;
-            right: 20px;
-            color: white;
-            font-size: 30px;
-            font-weight: bold;
-            cursor: pointer;
+            top: 10px; right: 16px;
+            color: white; font-size: 30px;
+            font-weight: bold; cursor: pointer;
+            z-index: 10;
         }
+
+        /* ── Project Detail Modal ── */
+        .project-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.88);
+            overflow-y: auto;
+        }
+        .project-modal-content {
+            position: relative;
+            margin: 5% auto;
+            width: 88%;
+            max-width: 680px;
+            background: #111;
+            border-radius: 12px;
+            box-shadow: 0 6px 30px rgba(0,0,255,0.35);
+            overflow: hidden;
+            animation: popIn 0.25s ease;
+        }
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+        .project-modal-img {
+            width: 100%;
+            max-height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+        .project-modal-body {
+            padding: 24px 28px 28px;
+            color: white;
+        }
+        .project-modal-body h2 {
+            margin: 0 0 6px;
+            font-size: 1.4rem;
+            color: white;
+            letter-spacing: 1px;
+        }
+        .project-modal-body .pm-subtitle {
+            color: #4444ff;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+        .project-modal-body p {
+            color: #ccc;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .project-modal-body h4 {
+            color: #aaa;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .pm-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .pm-badge {
+            background: #0000aa;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .project-modal-close {
+            position: absolute;
+            top: 12px; right: 18px;
+            color: white; font-size: 28px;
+            font-weight: bold; cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            width: 36px; height: 36px;
+            display: flex; align-items: center; justify-content: center;
+            line-height: 1;
+            z-index: 10;
+        }
+        .project-modal-close:hover { background: blue; }
 
         /* ── Education Boxes ── */
         .education-container {
@@ -54,257 +132,150 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
-
         .education-box {
-            flex: 1 1 300px;
-            background-color: black;
+            flex: 1 1 220px;
+            background: #000;
             padding: 15px;
             border-left: 5px solid blue;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            position: relative;
-            min-width: 280px;
-            max-width: 350px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            max-width: 280px;
             box-sizing: border-box;
         }
-
         .education-box h4 {
             margin: 0 0 10px;
             color: white;
-            background-color: blue;
+            background: blue;
             padding: 6px 10px;
             border-radius: 4px;
         }
+        .education-box ul { list-style: none; padding: 0; margin: 0; }
+        .education-box li { margin-bottom: 6px; color: white; font-size: 0.9rem; }
 
-        .education-box ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .education-box li {
-            margin-bottom: 6px;
-            color: white;
-        }
-
-        /* ── About Options ── */
+        /* ── About Options (horizontal tabs) ── */
         .about--options {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
+            margin-top: 24px;
         }
-
         .about--options a {
-            margin: 0 5px;
             text-decoration: none;
             color: white;
-            background-color: blue;
-            padding: 8px 20px;
+            background: blue;
+            padding: 10px 22px;
             border-radius: 6px;
             transition: background 0.2s;
+            display: inline-block;
         }
+        .about--options a:hover { background: #0000cc; }
+        .about--options a h3 { margin: 0; font-size: 0.9rem; }
 
-        .about--options a:hover {
-            background-color: #0000cc;
-        }
-
-        .about--options a h3 {
-            margin: 0;
-            font-size: 0.95rem;
-        }
-
-        /* ── About Content Panels ── */
+        /* ── About Content Panels (scrollable) ── */
         .about--content {
             display: none;
-            padding: 20px 10px;
+            margin-top: 20px;
+            max-height: 55vh;
+            overflow-y: auto;
+            padding: 16px 12px;
+            border-radius: 8px;
+            background: rgba(0,0,0,0.3);
             animation: fadeIn 0.3s ease;
+            scrollbar-width: thin;
+            scrollbar-color: blue #111;
         }
+        .about--content::-webkit-scrollbar { width: 6px; }
+        .about--content::-webkit-scrollbar-track { background: #111; }
+        .about--content::-webkit-scrollbar-thumb { background: blue; border-radius: 3px; }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to   { opacity: 1; transform: translateY(0); }
         }
 
         /* ── Back Button ── */
         .back-button {
-            background: blue;
-            color: white;
-            border: none;
-            padding: 6px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-bottom: 16px;
-            font-size: 0.9rem;
-            display: inline-block;
+            background: blue; color: white;
+            border: none; padding: 6px 16px;
+            border-radius: 6px; cursor: pointer;
+            margin-bottom: 14px; font-size: 0.88rem;
         }
-
-        .back-button:hover {
-            background: #0000cc;
-        }
+        .back-button:hover { background: #0000cc; }
 
         /* ── Skills Grid ── */
         .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-top: 20px;
+            display: flex; flex-wrap: wrap;
+            gap: 14px; margin-top: 10px;
             justify-content: center;
         }
-
         .skill-card {
-            background-color: #000;
+            background: #000;
             border-left: 5px solid blue;
             border-radius: 8px;
-            padding: 16px 20px;
-            min-width: 200px;
-            max-width: 260px;
-            flex: 1 1 200px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            padding: 14px 18px;
+            min-width: 180px; max-width: 240px;
+            flex: 1 1 180px;
         }
-
         .skill-card h4 {
-            color: #fff;
-            background-color: blue;
+            color: white; background: blue;
             margin: 0 0 10px;
-            padding: 6px 10px;
-            border-radius: 4px;
-            font-size: 0.9rem;
+            padding: 5px 8px; border-radius: 4px;
+            font-size: 0.85rem;
         }
-
-        .skill-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .skill-card li {
-            color: white;
-            margin-bottom: 6px;
-            font-size: 0.9rem;
-        }
+        .skill-card ul { list-style: none; padding: 0; margin: 0; }
+        .skill-card li { color: white; margin-bottom: 5px; font-size: 0.88rem; }
 
         /* ── CV Card ── */
         .cv-card {
-            background-color: #111;
-            border-radius: 10px;
-            padding: 28px;
-            max-width: 720px;
-            margin: 20px auto;
-            box-shadow: 0 4px 20px rgba(0,0,255,0.25);
+            background: #111; border-radius: 10px;
+            padding: 22px 26px;
+            box-shadow: 0 4px 20px rgba(0,0,255,0.2);
             color: white;
         }
-
         .cv-header {
             border-bottom: 2px solid blue;
-            padding-bottom: 14px;
-            margin-bottom: 20px;
+            padding-bottom: 12px; margin-bottom: 16px;
             text-align: center;
         }
-
-        .cv-header h2 {
-            color: white;
-            margin: 0 0 4px;
-            font-size: 1.7rem;
-            letter-spacing: 3px;
-        }
-
-        .cv-subtitle {
-            color: #aaa;
-            margin: 4px 0 8px;
-            font-size: 1rem;
-        }
-
-        .cv-contact {
-            font-size: 0.8rem;
-            color: #ccc;
-            line-height: 1.8;
-        }
-
-        .cv-body {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
+        .cv-header h2 { color: white; margin: 0 0 4px; font-size: 1.5rem; letter-spacing: 3px; }
+        .cv-subtitle { color: #aaa; margin: 4px 0 8px; font-size: 0.95rem; }
+        .cv-contact { font-size: 0.78rem; color: #ccc; line-height: 1.9; }
+        .cv-body { display: flex; flex-direction: column; gap: 18px; }
         .cv-section h3 {
-            color: #4444ff;
-            border-bottom: 1px solid #222;
-            padding-bottom: 6px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
+            color: #4444ff; border-bottom: 1px solid #222;
+            padding-bottom: 5px; margin-bottom: 10px;
+            text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;
         }
-
-        .cv-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .cv-table tr:nth-child(even) {
-            background-color: #1a1a1a;
-        }
-
-        .cv-table td {
-            padding: 7px 12px;
-            color: #ccc;
-            font-size: 0.9rem;
-        }
-
-        .cv-table td:first-child {
-            color: #aaa;
-            font-weight: bold;
-            width: 150px;
-        }
-
+        .cv-table { width: 100%; border-collapse: collapse; }
+        .cv-table tr:nth-child(even) { background: #1a1a1a; }
+        .cv-table td { padding: 6px 10px; color: #ccc; font-size: 0.88rem; }
+        .cv-table td:first-child { color: #aaa; font-weight: bold; width: 140px; }
         .cv-entry {
-            margin-bottom: 12px;
-            color: #ccc;
-            line-height: 1.6;
-            padding-left: 10px;
+            margin-bottom: 10px; color: #ccc;
+            line-height: 1.6; padding-left: 10px;
             border-left: 3px solid blue;
         }
-
-        .cv-entry strong {
-            color: white;
-        }
-
-        .cv-entry span {
-            color: #aaa;
-            font-size: 0.85rem;
-        }
-
-        .cv-skills-list {
-            color: #ccc;
-            font-size: 0.9rem;
-            line-height: 2;
-        }
-
-        .cv-skills-list .badge {
-            display: inline-block;
-            background: #0000aa;
-            color: white;
-            padding: 3px 10px;
-            border-radius: 20px;
-            margin: 3px;
-            font-size: 0.82rem;
+        .cv-entry strong { color: white; }
+        .cv-entry span { color: #aaa; font-size: 0.83rem; }
+        .cv-skills-list { display: flex; flex-wrap: wrap; gap: 6px; }
+        .badge {
+            display: inline-block; background: #0000aa;
+            color: white; padding: 3px 10px;
+            border-radius: 20px; font-size: 0.8rem;
         }
 
         /* ── Form Status ── */
-        #form-status {
-            color: white;
-            margin-top: 10px;
-            font-size: 0.9rem;
-        }
+        #form-status { color: white; margin-top: 10px; font-size: 0.9rem; }
+
+        /* ── Slider item clickable ── */
+        .slider--item a { cursor: pointer; }
     </style>
 </head>
 
 <body>
-    <!-- notification for small viewports -->
     <div class="device-notification">
         <a class="device-notification--logo" href="#0">
             <img src="assets/img/logo.png" alt="Global">
@@ -324,9 +295,7 @@
                             <p>My Portfolio</p>
                         </a>
                         <button class="header--cta cta">Hire Us</button>
-                        <div class="header--nav-toggle">
-                            <span></span>
-                        </div>
+                        <div class="header--nav-toggle"><span></span></div>
                     </header>
 
                     <nav class="l-side-nav">
@@ -350,11 +319,10 @@
                                     <h2>student at University of Bohol.</h2>
                                     <button class="cta">
                                         Let's Work Together
-                                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                                         <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
                                         <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
-                                        </g>
-                                        </svg>
+                                        </g></svg>
                                         <span class="btn-background"></span>
                                     </button>
                                     <img src="assets/img/introduction-visual.png" alt="Welcome">
@@ -373,34 +341,91 @@
                                     <div id="modalNumericals" class="video-modal">
                                         <div class="video-modal-content">
                                             <span class="video-modal-close" onclick="closeVideoModal('modalNumericals')">&times;</span>
-                                            <iframe id="videoNumericals" width="600" height="400" src="" frameborder="0" allowfullscreen></iframe>
+                                            <iframe id="videoNumericals" src="" frameborder="0" allowfullscreen></iframe>
                                         </div>
                                     </div>
-
                                     <div id="modalMatlab" class="video-modal">
                                         <div class="video-modal-content">
                                             <span class="video-modal-close" onclick="closeVideoModal('modalMatlab')">&times;</span>
-                                            <iframe id="videoMatlab" width="600" height="400" src="" frameborder="0" allowfullscreen></iframe>
+                                            <iframe id="videoMatlab" src="" frameborder="0" allowfullscreen></iframe>
                                         </div>
                                     </div>
-
                                     <div id="modalSumobot" class="video-modal">
                                         <div class="video-modal-content">
                                             <span class="video-modal-close" onclick="closeVideoModal('modalSumobot')">&times;</span>
-                                            <iframe id="videoSumobot" width="600" height="400" src="" frameborder="0" allowfullscreen></iframe>
+                                            <iframe id="videoSumobot" src="" frameborder="0" allowfullscreen></iframe>
                                         </div>
                                     </div>
 
-                                    <div id="modalBalance" class="video-modal">
-                                        <div class="video-modal-content">
-                                            <span class="video-modal-close" onclick="closeVideoModal('modalBalance')">&times;</span>
-                                            <iframe id="videoBalance" width="600" height="400" src="" frameborder="0" allowfullscreen></iframe>
+                                    <!-- Project Detail Modals -->
+
+                                    <!-- 16 Segment Modal -->
+                                    <div id="modal16seg" class="project-modal">
+                                        <div class="project-modal-content">
+                                            <span class="project-modal-close" onclick="closeProjectModal('modal16seg')">&times;</span>
+                                            <img src="16segment.png" alt="16 Segment Display" class="project-modal-img">
+                                            <div class="project-modal-body">
+                                                <div class="pm-subtitle">CPEP 311 · Midterm Project</div>
+                                                <h2>16 Segment Display Logic in Circuits</h2>
+                                                <p>
+                                                    A hardware logic circuit project that drives a 16-segment display using combinational logic.
+                                                    An 8-bit input (via a 3-bit DIP switch) is decoded through a network of logic gates
+                                                    to control each of the 16 segments — displaying characters and digits without any microcontroller.
+                                                </p>
+                                                <h4>Components Used</h4>
+                                                <div class="pm-badges">
+                                                    <span class="pm-badge">3-bit DIP Switch</span>
+                                                    <span class="pm-badge">NOT Gate</span>
+                                                    <span class="pm-badge">3× OR Gate</span>
+                                                    <span class="pm-badge">5× AND Gate</span>
+                                                    <span class="pm-badge">2× XOR Gate</span>
+                                                    <span class="pm-badge">16 Segment Display</span>
+                                                    <span class="pm-badge">330Ω Resistor</span>
+                                                    <span class="pm-badge">Breadboard</span>
+                                                    <span class="pm-badge">22AWG Solid Wire</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Self-Balancing Robot Modal -->
+                                    <div id="modalBalanceBot" class="project-modal">
+                                        <div class="project-modal-content">
+                                            <span class="project-modal-close" onclick="closeProjectModal('modalBalanceBot')">&times;</span>
+                                            <img src="selfbalancing_popup.jpeg" alt="Self Balancing Robot" class="project-modal-img">
+                                            <div class="project-modal-body">
+                                                <div class="pm-subtitle">Robotics Project · PD + Kalman Filter</div>
+                                                <h2>Self-Balancing Robot</h2>
+                                                <p>
+                                                    A two-wheeled self-balancing robot that uses a PD (Proportional-Derivative) control algorithm
+                                                    combined with a Kalman Filter for accurate angle estimation. The MPU6050 IMU sensor
+                                                    continuously reads tilt data, which is processed by the Arduino Nano to drive the motors
+                                                    and keep the robot upright in real time.
+                                                </p>
+                                                <h4>Components Used</h4>
+                                                <div class="pm-badges">
+                                                    <span class="pm-badge">Arduino Nano</span>
+                                                    <span class="pm-badge">MPU6050 IMU</span>
+                                                    <span class="pm-badge">Motor Driver</span>
+                                                    <span class="pm-badge">2× Geared Motor</span>
+                                                    <span class="pm-badge">2× Tires</span>
+                                                    <span class="pm-badge">4× 18650 Battery</span>
+                                                    <span class="pm-badge">Illuminated Switch</span>
+                                                    <span class="pm-badge">Small Breadboard</span>
+                                                </div>
+                                                <h4>Algorithm</h4>
+                                                <div class="pm-badges">
+                                                    <span class="pm-badge">PD Control</span>
+                                                    <span class="pm-badge">Kalman Filter</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <ul class="slider">
+                                        <!-- Numericals -->
                                         <li class="slider--item slider--item-left">
-                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/hsd4ZCD_9gk')">
+                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/hsd4ZCD_9gk'); return false;">
                                                 <div class="slider--item-image">
                                                     <img src="assets/img/numericals.jpg" alt="Numericals">
                                                 </div>
@@ -408,8 +433,10 @@
                                                 <p class="slider--item-description">Coding: Where logic meets creativity.</p>
                                             </a>
                                         </li>
+
+                                        <!-- MATLAB -->
                                         <li class="slider--item slider--item-center">
-                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/zSmEEYdxUOQ')">
+                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/zSmEEYdxUOQ'); return false;">
                                                 <div class="slider--item-image">
                                                     <img src="assets/img/matlab.jpg" alt="MATLAB">
                                                 </div>
@@ -417,8 +444,10 @@
                                                 <p class="slider--item-description">Software Application: Bridging imagination with functionality.</p>
                                             </a>
                                         </li>
+
+                                        <!-- Sumobot -->
                                         <li class="slider--item slider--item-right">
-                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/VO4baTNzTyM?autoplay=1')">
+                                            <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/VO4baTNzTyM?autoplay=1'); return false;">
                                                 <div class="slider--item-image">
                                                     <img src="assets/img/sumobot.jpg" alt="Sumobot">
                                                 </div>
@@ -426,21 +455,41 @@
                                                 <p class="slider--item-description">Experiencing how to create a formidable sumobot.</p>
                                             </a>
                                         </li>
+
+                                        <!-- 16 Segment -->
+                                        <li class="slider--item slider--item-right">
+                                            <a href="#0" onclick="openProjectModal('modal16seg'); return false;">
+                                                <div class="slider--item-image">
+                                                    <img src="16segment.png" alt="16 Segment Display" style="object-fit:cover;width:100%;height:100%;">
+                                                </div>
+                                                <p class="slider--item-title">16 Segment Display</p>
+                                                <p class="slider--item-description">Logic circuit driving a 16-segment display using combinational gates.</p>
+                                            </a>
+                                        </li>
+
+                                        <!-- Self-Balancing Robot -->
+                                        <li class="slider--item slider--item-right">
+                                            <a href="#0" onclick="openProjectModal('modalBalanceBot'); return false;">
+                                                <div class="slider--item-image">
+                                                    <img src="selfbalancing_thumb.jpeg" alt="Self Balancing Robot" style="object-fit:cover;width:100%;height:100%;">
+                                                </div>
+                                                <p class="slider--item-title">Self-Balancing Robot</p>
+                                                <p class="slider--item-description">Two-wheeled robot using PD control and Kalman filter to stay upright.</p>
+                                            </a>
+                                        </li>
                                     </ul>
 
                                     <div class="slider--prev">
-                                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                                         <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
                                         <path d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z"/>
-                                        </g>
-                                        </svg>
+                                        </g></svg>
                                     </div>
                                     <div class="slider--next">
-                                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                                         <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
                                         <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
-                                        </g>
-                                        </svg>
+                                        </g></svg>
                                     </div>
                                 </div>
                             </div>
@@ -454,17 +503,16 @@
                                     <a href="#0">
                                         Career
                                         <span>
-                                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                                             <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
                                             <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
-                                            </g>
-                                            </svg>
+                                            </g></svg>
                                         </span>
                                     </a>
                                     <img src="assets/img/about-visual.jpg" alt="About Us">
                                 </div>
 
-                                <!-- Tab Buttons -->
+                                <!-- Horizontal Tab Buttons -->
                                 <div class="about--options">
                                     <a href="#education" onclick="toggleContent('education'); return false;">
                                         <h3>Education</h3>
@@ -631,47 +679,42 @@
                         <li class="l-section section">
                             <div class="hire">
                                 <h2>You want us to do</h2>
-
                                 <form class="work-request" id="workRequestForm">
                                     <div class="work-request--options">
                                         <span class="options-a">
                                             <input id="opt-1" type="checkbox" value="Graphic Design">
                                             <label for="opt-1">
-                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
+                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
                                                 <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
                                                 <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
-                                                </g>
-                                                </svg>
+                                                </g></svg>
                                                 Graphic Design
                                             </label>
 
                                             <input id="opt-2" type="checkbox" value="Developer">
                                             <label for="opt-2">
-                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
+                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
                                                 <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
                                                 <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
-                                                </g>
-                                                </svg>
+                                                </g></svg>
                                                 Developer
                                             </label>
 
                                             <input id="opt-3" type="checkbox" value="UX Design">
                                             <label for="opt-3">
-                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
+                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
                                                 <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
                                                 <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
-                                                </g>
-                                                </svg>
+                                                </g></svg>
                                                 UX Design
                                             </label>
 
                                             <input id="opt-4" type="checkbox" value="Hardware Design">
                                             <label for="opt-4">
-                                                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
+                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 111" style="enable-background:new 0 0 150 111;" xml:space="preserve">
                                                 <g transform="translate(0.000000,111.000000) scale(0.100000,-0.100000)">
                                                 <path d="M950,705L555,310L360,505C253,612,160,700,155,700c-6,0-44-34-85-75l-75-75l278-278L550-5l475,475c261,261,475,480,475,485c0,13-132,145-145,145C1349,1100,1167,922,950,705z"/>
-                                                </g>
-                                                </svg>
+                                                </g></svg>
                                                 Hardware Design
                                             </label>
                                         </span>
@@ -723,20 +766,14 @@
 
         /* ---------- Video Modals ---------- */
         function openVideoModal(videoURL) {
-            let modalId = '';
-            let iframeId = '';
-
+            let modalId = '', iframeId = '';
             if (videoURL.includes('hsd4ZCD_9gk')) {
-                modalId = 'modalNumericals';
-                iframeId = 'videoNumericals';
+                modalId = 'modalNumericals'; iframeId = 'videoNumericals';
             } else if (videoURL.includes('zSmEEYdxUOQ')) {
-                modalId = 'modalMatlab';
-                iframeId = 'videoMatlab';
+                modalId = 'modalMatlab'; iframeId = 'videoMatlab';
             } else if (videoURL.includes('VO4baTNzTyM')) {
-                modalId = 'modalSumobot';
-                iframeId = 'videoSumobot';
+                modalId = 'modalSumobot'; iframeId = 'videoSumobot';
             }
-
             if (modalId) {
                 document.getElementById(modalId).style.display = 'block';
                 document.getElementById(iframeId).src = videoURL;
@@ -745,22 +782,36 @@
 
         function closeVideoModal(modalId) {
             const modal = document.getElementById(modalId);
-            const iframe = modal.querySelector('iframe');
-            iframe.src = '';
+            modal.querySelector('iframe').src = '';
             modal.style.display = 'none';
         }
 
-        // Close modal on background click
+        /* ---------- Project Detail Modals ---------- */
+        function openProjectModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        /* ---------- Close modals on background click ---------- */
         window.onclick = function(event) {
-            ['modalNumericals', 'modalMatlab', 'modalSumobot', 'modalBalance'].forEach(function(id) {
+            // Video modals
+            ['modalNumericals', 'modalMatlab', 'modalSumobot'].forEach(function(id) {
                 const modal = document.getElementById(id);
-                if (modal && event.target === modal) {
-                    closeVideoModal(id);
-                }
+                if (modal && event.target === modal) closeVideoModal(id);
+            });
+            // Project modals
+            ['modal16seg', 'modalBalanceBot'].forEach(function(id) {
+                const modal = document.getElementById(id);
+                if (modal && event.target === modal) closeProjectModal(id);
             });
         };
 
-        /* ---------- Send Request Form (Formspree) ---------- */
+        /* ---------- Send Request Form ---------- */
         document.getElementById('workRequestForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -770,7 +821,6 @@
             const email      = document.getElementById('email').value.trim();
             const status     = document.getElementById('form-status');
 
-            // Validation
             if (!name || !email) {
                 status.textContent = '⚠️ Please fill in your name and email.';
                 status.style.color = 'orange';
@@ -782,53 +832,19 @@
                 return;
             }
 
-            // Build the email body as a mailto link as fallback,
-            // OR use Formspree — replace YOUR_FORMSPREE_ID below after signing up at formspree.io
-            const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // <-- Replace this after signing up at formspree.io
-
-            if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
-                // Fallback: open Gmail compose in browser with pre-filled fields
-                const subject = encodeURIComponent('Work Request from ' + name);
-                const body    = encodeURIComponent(
-                    'Name: ' + name + '\n' +
-                    'Email: ' + email + '\n' +
-                    'Services Requested: ' + services
-                );
-                window.open(
-                    'https://mail.google.com/mail/?view=cm&fs=1&to=saripaposacassainodin@gmail.com&su=' + subject + '&body=' + body,
-                    '_blank'
-                );
-                status.textContent = '✅ Gmail opened! Please click Send in the new tab.';
-                status.style.color = 'lightgreen';
-                return;
-            }
-
-            // Formspree submission (active when FORMSPREE_ID is set)
-            status.textContent = '⏳ Sending...';
-            status.style.color = 'white';
-
-            fetch('https://formspree.io/f/' + FORMSPREE_ID, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name:     name,
-                    email:    email,
-                    services: services
-                })
-            })
-            .then(function(response) {
-                if (response.ok) {
-                    status.textContent = '✅ Request sent! I will get back to you soon.';
-                    status.style.color = 'lightgreen';
-                    document.getElementById('workRequestForm').reset();
-                } else {
-                    throw new Error('Server error');
-                }
-            })
-            .catch(function() {
-                status.textContent = '❌ Failed to send. Please try again.';
-                status.style.color = 'red';
-            });
+            // Opens Gmail compose with pre-filled fields
+            const subject = encodeURIComponent('Work Request from ' + name);
+            const body    = encodeURIComponent(
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n' +
+                'Services Requested: ' + services
+            );
+            window.open(
+                'https://mail.google.com/mail/?view=cm&fs=1&to=saripaposacassainodin@gmail.com&su=' + subject + '&body=' + body,
+                '_blank'
+            );
+            status.textContent = '✅ Gmail opened! Please click Send in the new tab.';
+            status.style.color = 'lightgreen';
         });
     </script>
 
