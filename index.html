@@ -73,7 +73,6 @@
             margin: 0 0 6px;
             font-size: 1.4rem;
             color: white;
-            letter-spacing: 1px;
         }
         .project-modal-body .pm-subtitle {
             color: #4444ff;
@@ -95,26 +94,15 @@
             letter-spacing: 2px;
             margin-bottom: 10px;
         }
-        .pm-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
+        .pm-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
         .pm-badge {
-            background: #0000aa;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            background: #0000aa; color: white;
+            padding: 4px 12px; border-radius: 20px; font-size: 0.8rem;
         }
         .project-modal-close {
-            position: absolute;
-            top: 12px; right: 18px;
-            color: white; font-size: 28px;
-            font-weight: bold; cursor: pointer;
-            background: rgba(0,0,0,0.5);
-            border-radius: 50%;
+            position: absolute; top: 12px; right: 18px;
+            color: white; font-size: 28px; font-weight: bold; cursor: pointer;
+            background: rgba(0,0,0,0.5); border-radius: 50%;
             width: 36px; height: 36px;
             display: flex; align-items: center; justify-content: center;
             z-index: 10;
@@ -149,25 +137,13 @@
             align-items: center;
             justify-content: space-between;
         }
-        .about-modal-header h2 {
-            margin: 0;
-            color: white;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        .about-modal-close {
-            color: white;
-            font-size: 26px;
-            font-weight: bold;
-            cursor: pointer;
-            line-height: 1;
-        }
+        .about-modal-header h2 { margin: 0; color: white; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+        .about-modal-close { color: white; font-size: 26px; font-weight: bold; cursor: pointer; line-height: 1; }
         .about-modal-close:hover { color: #ccc; }
         .about-modal-body {
             padding: 24px 28px 32px;
             color: white;
-            max-height: 75vh;
+            max-height: 72vh;
             overflow-y: auto;
             scrollbar-width: thin;
             scrollbar-color: blue #1a1a1a;
@@ -187,108 +163,83 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin-top: 30px;
+            margin-top: 28px;
         }
         .about-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex: 1 1 160px;
+            max-width: 200px;
             background: #000;
             border: 2px solid blue;
             border-radius: 12px;
-            padding: 20px 16px 16px;
-            width: 160px;
+            overflow: hidden;
             cursor: pointer;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
         }
         .about-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-5px);
             box-shadow: 0 8px 24px rgba(0,0,255,0.4);
-            background: #0a0a2a;
         }
         .about-card img {
-            width: 90px;
-            height: 90px;
-            object-fit: contain;
-            margin-bottom: 12px;
-            border-radius: 8px;
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            display: block;
         }
-        .about-card h3 {
-            margin: 0;
+        .about-card-label {
+            background: blue;
             color: white;
+            padding: 10px 8px;
             font-size: 0.88rem;
-            text-align: center;
+            font-weight: bold;
             letter-spacing: 1px;
         }
 
         /* ── Education Boxes ── */
         .education-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 10px;
+            display: flex; flex-wrap: wrap;
+            justify-content: center; gap: 16px; margin-top: 10px;
         }
         .education-box {
-            flex: 1 1 180px;
-            background: #000;
-            padding: 14px;
-            border-left: 5px solid blue;
-            border-radius: 8px;
-            max-width: 220px;
-            box-sizing: border-box;
+            flex: 1 1 170px; background: #000;
+            padding: 14px; border-left: 5px solid blue;
+            border-radius: 8px; max-width: 210px; box-sizing: border-box;
         }
         .education-box h4 {
-            margin: 0 0 10px;
-            color: white;
-            background: blue;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.88rem;
+            margin: 0 0 10px; color: white; background: blue;
+            padding: 5px 10px; border-radius: 4px; font-size: 0.88rem;
         }
         .education-box ul { list-style: none; padding: 0; margin: 0; }
-        .education-box li { margin-bottom: 5px; color: #ccc; font-size: 0.85rem; }
+        .education-box li { margin-bottom: 5px; color: #ccc; font-size: 0.83rem; }
 
         /* ── Skills Grid ── */
         .skills-grid {
             display: flex; flex-wrap: wrap;
-            gap: 14px; margin-top: 10px;
-            justify-content: center;
+            gap: 14px; margin-top: 10px; justify-content: center;
         }
         .skill-card {
-            background: #000;
-            border-left: 5px solid blue;
-            border-radius: 8px;
-            padding: 14px 16px;
-            min-width: 160px; max-width: 210px;
-            flex: 1 1 160px;
+            background: #000; border-left: 5px solid blue;
+            border-radius: 8px; padding: 14px 16px;
+            min-width: 155px; max-width: 205px; flex: 1 1 155px;
         }
         .skill-card h4 {
-            color: white; background: blue;
-            margin: 0 0 10px;
-            padding: 5px 8px; border-radius: 4px;
-            font-size: 0.82rem;
+            color: white; background: blue; margin: 0 0 10px;
+            padding: 5px 8px; border-radius: 4px; font-size: 0.82rem;
         }
         .skill-card ul { list-style: none; padding: 0; margin: 0; }
         .skill-card li { color: #ccc; margin-bottom: 5px; font-size: 0.85rem; }
 
         /* ── CV Styles ── */
         .cv-card { color: white; }
-        .cv-header {
-            text-align: center;
-            border-bottom: 2px solid blue;
-            padding-bottom: 14px;
-            margin-bottom: 20px;
-        }
+        .cv-header { text-align: center; border-bottom: 2px solid blue; padding-bottom: 14px; margin-bottom: 20px; }
         .cv-header h2 { margin: 0 0 4px; font-size: 1.4rem; letter-spacing: 3px; color: white; }
         .cv-subtitle { color: #aaa; margin: 4px 0 8px; font-size: 0.92rem; }
         .cv-contact { font-size: 0.78rem; color: #ccc; line-height: 2; }
         .cv-body { display: flex; flex-direction: column; gap: 18px; }
         .cv-section { margin-bottom: 4px; }
         .cv-section h3 {
-            color: #5555ff;
-            border-bottom: 1px solid #2a2a2a;
+            color: #5555ff; border-bottom: 1px solid #2a2a2a;
             padding-bottom: 5px; margin-bottom: 12px;
             text-transform: uppercase; font-size: 0.78rem; letter-spacing: 2px;
         }
@@ -296,34 +247,24 @@
         .cv-table tr:nth-child(even) { background: #1a1a1a; }
         .cv-table td { padding: 7px 10px; color: #ccc; font-size: 0.87rem; }
         .cv-table td:first-child { color: #aaa; font-weight: bold; width: 130px; }
-        .cv-entry {
-            margin-bottom: 12px; padding-left: 12px;
-            border-left: 3px solid blue; line-height: 1.65;
-        }
+        .cv-entry { margin-bottom: 12px; padding-left: 12px; border-left: 3px solid blue; line-height: 1.65; }
         .cv-entry strong { color: white; font-size: 0.92rem; }
         .cv-entry span { color: #aaa; font-size: 0.82rem; display: block; margin-top: 2px; }
         .cv-seminar {
             margin-bottom: 12px; padding: 10px 14px;
-            background: #1a1a1a; border-radius: 6px;
-            border-left: 3px solid blue;
+            background: #1a1a1a; border-radius: 6px; border-left: 3px solid blue;
         }
         .cv-seminar strong { color: white; font-size: 0.9rem; display: block; margin-bottom: 4px; }
         .cv-seminar span { color: #aaa; font-size: 0.82rem; display: block; line-height: 1.6; }
         .cv-skills-list { display: flex; flex-wrap: wrap; gap: 6px; }
-        .badge {
-            display: inline-block; background: #0000aa;
-            color: white; padding: 3px 10px;
-            border-radius: 20px; font-size: 0.8rem;
-        }
+        .badge { display: inline-block; background: #0000aa; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; }
         .cv-declaration {
-            background: #1a1a1a; border-radius: 8px;
-            padding: 14px 16px; color: #aaa;
-            font-size: 0.82rem; line-height: 1.7; font-style: italic;
+            background: #1a1a1a; border-radius: 8px; padding: 14px 16px;
+            color: #aaa; font-size: 0.82rem; line-height: 1.7; font-style: italic;
         }
         .cv-signature {
-            margin-top: 20px; text-align: right;
-            color: #ccc; font-size: 0.85rem;
-            border-top: 1px solid #333; padding-top: 14px;
+            margin-top: 20px; text-align: right; color: #ccc;
+            font-size: 0.85rem; border-top: 1px solid #333; padding-top: 14px;
         }
         .cv-signature strong { display: block; color: white; font-size: 0.9rem; margin-top: 4px; }
 
@@ -470,27 +411,21 @@
                                     <ul class="slider">
                                         <li class="slider--item slider--item-left">
                                             <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/hsd4ZCD_9gk'); return false;">
-                                                <div class="slider--item-image">
-                                                    <img src="assets/img/numericals.jpg" alt="Numericals">
-                                                </div>
+                                                <div class="slider--item-image"><img src="assets/img/numericals.jpg" alt="Numericals"></div>
                                                 <p class="slider--item-title">Numericals</p>
                                                 <p class="slider--item-description">Coding: Where logic meets creativity.</p>
                                             </a>
                                         </li>
                                         <li class="slider--item slider--item-center">
                                             <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/zSmEEYdxUOQ'); return false;">
-                                                <div class="slider--item-image">
-                                                    <img src="assets/img/matlab.jpg" alt="MATLAB">
-                                                </div>
+                                                <div class="slider--item-image"><img src="assets/img/matlab.jpg" alt="MATLAB"></div>
                                                 <p class="slider--item-title">MATLAB</p>
                                                 <p class="slider--item-description">Software Application: Bridging imagination with functionality.</p>
                                             </a>
                                         </li>
                                         <li class="slider--item slider--item-right">
                                             <a href="#0" onclick="openVideoModal('https://www.youtube.com/embed/VO4baTNzTyM?autoplay=1'); return false;">
-                                                <div class="slider--item-image">
-                                                    <img src="assets/img/sumobot.jpg" alt="Sumobot">
-                                                </div>
+                                                <div class="slider--item-image"><img src="assets/img/sumobot.jpg" alt="Sumobot"></div>
                                                 <p class="slider--item-title">Sumobot</p>
                                                 <p class="slider--item-description">Experiencing how to create a formidable sumobot.</p>
                                             </a>
@@ -548,19 +483,19 @@
                                     <img src="assets/img/about-visual.jpg" alt="About Us">
                                 </div>
 
-                                <!-- 3 Cards side by side with images -->
+                                <!-- 3 Cards Side by Side -->
                                 <div class="about--options">
                                     <a class="about-card" href="#0" onclick="openAboutModal('modalEducation'); return false;">
                                         <img src="education.jpg" alt="Education">
-                                        <h3>Education</h3>
+                                        <div class="about-card-label">Education</div>
                                     </a>
                                     <a class="about-card" href="#0" onclick="openAboutModal('modalSkills'); return false;">
                                         <img src="skills.jpg" alt="Skills">
-                                        <h3>Skills</h3>
+                                        <div class="about-card-label">Skills</div>
                                     </a>
                                     <a class="about-card" href="#0" onclick="openAboutModal('modalCV'); return false;">
-                                        <img src="PI.png" alt="Personal Information">
-                                        <h3>Personal Information</h3>
+                                        <img src="personalinfo.png" alt="Personal Information">
+                                        <div class="about-card-label">Personal Information</div>
                                     </a>
                                 </div>
                             </div>
@@ -655,9 +590,9 @@
         </ul>
     </div>
 
-    <!-- ══════════════════════════
+    <!-- ══════════════════════════════════
          ABOUT ME POP-UP MODALS
-    ══════════════════════════ -->
+    ══════════════════════════════════ -->
 
     <!-- Education Modal -->
     <div id="modalEducation" class="about-modal">
@@ -694,7 +629,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="cv-section" style="margin-top: 28px;">
+                <div class="cv-section" style="margin-top:28px;">
                     <h3>Seminars &amp; Training</h3>
                     <div class="cv-seminar">
                         <strong>IMPACT: CrypTALK</strong>
@@ -845,7 +780,6 @@
 
     <!-- ── SCRIPTS ── -->
     <script>
-        /* ---------- About Info Modals ---------- */
         function openAboutModal(id) {
             document.getElementById(id).style.display = 'block';
             document.body.style.overflow = 'hidden';
@@ -854,8 +788,6 @@
             document.getElementById(id).style.display = 'none';
             document.body.style.overflow = '';
         }
-
-        /* ---------- Video Modals ---------- */
         function openVideoModal(videoURL) {
             let modalId = '', iframeId = '';
             if (videoURL.includes('hsd4ZCD_9gk'))      { modalId = 'modalNumericals'; iframeId = 'videoNumericals'; }
@@ -871,8 +803,6 @@
             modal.querySelector('iframe').src = '';
             modal.style.display = 'none';
         }
-
-        /* ---------- Project Detail Modals ---------- */
         function openProjectModal(id) {
             document.getElementById(id).style.display = 'block';
             document.body.style.overflow = 'hidden';
@@ -881,8 +811,6 @@
             document.getElementById(id).style.display = 'none';
             document.body.style.overflow = '';
         }
-
-        /* ---------- Close on background click ---------- */
         window.onclick = function(event) {
             ['modalNumericals','modalMatlab','modalSumobot'].forEach(function(id) {
                 const m = document.getElementById(id);
@@ -897,8 +825,6 @@
                 if (m && event.target === m) closeAboutModal(id);
             });
         };
-
-        /* ---------- Send Request Form ---------- */
         document.getElementById('workRequestForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const checkboxes = document.querySelectorAll('.work-request--options input[type="checkbox"]:checked');
@@ -906,25 +832,11 @@
             const name       = document.getElementById('name').value.trim();
             const email      = document.getElementById('email').value.trim();
             const status     = document.getElementById('form-status');
-
-            if (!name || !email) {
-                status.textContent = '⚠️ Please fill in your name and email.';
-                status.style.color = 'orange'; return;
-            }
-            if (!services) {
-                status.textContent = '⚠️ Please select at least one service.';
-                status.style.color = 'orange'; return;
-            }
+            if (!name || !email) { status.textContent = '⚠️ Please fill in your name and email.'; status.style.color = 'orange'; return; }
+            if (!services)       { status.textContent = '⚠️ Please select at least one service.'; status.style.color = 'orange'; return; }
             const subject = encodeURIComponent('Work Request from ' + name);
-            const body    = encodeURIComponent(
-                'Name: ' + name + '\n' +
-                'Email: ' + email + '\n' +
-                'Services Requested: ' + services
-            );
-            window.open(
-                'https://mail.google.com/mail/?view=cm&fs=1&to=saripaposacassainodin@gmail.com&su=' + subject + '&body=' + body,
-                '_blank'
-            );
+            const body    = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nServices Requested: ' + services);
+            window.open('https://mail.google.com/mail/?view=cm&fs=1&to=saripaposacassainodin@gmail.com&su=' + subject + '&body=' + body, '_blank');
             status.textContent = '✅ Gmail opened! Please click Send in the new tab.';
             status.style.color = 'lightgreen';
         });
@@ -934,4 +846,4 @@
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
     <script src="assets/js/functions-min.js"></script>
 </body>
-</html>
+</html>    
